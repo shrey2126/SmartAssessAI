@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink-0: #ffffff;
+  --ink-50: #fafafa;
+  --ink-100: #f4f4f5;
+  --ink-200: #e4e4e7;
+  --ink-300: #d4d4d8;
+  --ink-400: #a1a1aa;
+  --ink-500: #71717a;
+  --ink-600: #52525b;
+  --ink-700: #3f3f46;
+  --ink-800: #27272a;
+  --ink-900: #111111;
+  --ink-950: #0a0a0a;
+  --success: #4b5563;
+  --warn: #78716c;
+  --danger: #57534e;
+  --bg: #fafafa;
+  --fg: #0a0a0a;
+  --muted: #52525b;
+  --card: rgba(255, 255, 255, 0.72);
+  --border: rgba(24, 24, 27, 0.08);
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --fg: #fafafa;
+  --muted: #a1a1aa;
+  --card: rgba(17, 17, 17, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.grid-bg {
+  background-image: linear-gradient(to right, var(--ink-200) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ink-200) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
+
+.dark .grid-bg {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.img-mono {
+  filter: grayscale(1) contrast(1.05);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--ink-400);
+  border-radius: 99px;
+}

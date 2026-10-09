@@ -129,6 +129,3 @@ npm run lint     # client eslint
 - `vite build`
 
 Camera hardware cannot be fully exercised in headless automation; permission and no-device error paths are implemented in the Interview page.
-=======
-# SmartAssessAI
->>>>>>> 59f355c89b0e144cd95e0ac4539046df52ff6f80
